@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Chaitanya Malaviya | Why use salt on icy roads?</title>
+  <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+">
+
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/blog/2018/commonsense/">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+        
+        <strong>Chaitanya</strong> Malaviya
+    </span>
+    
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="/">about</a>
+
+        <!-- Blog -->
+        <a class="page-link" href="/blog/">blog</a>
+
+        <!-- Pages -->
+        
+          
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="/photos/">photos</a>
+          
+        
+          
+            <a class="page-link" href="/projects/">projects</a>
+          
+        
+          
+            <a class="page-link" href="/publications/">publications and reports</a>
+          
+        
+          
+        
+
+        <!-- CV link -->
+        <!-- <a class="page-link" href="/assets/pdf/CV.pdf">vitae</a> -->
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Why use salt on icy roads?</h1>
+    <p class="post-meta">August 14, 2018</p>
+  </header>
+
+  <article class="post-content">
+    <div class="img_row">
+    <img class="col three" src="/assets/img/icysalt.jpg" />
+</div>
+
+<p><br /></p>
+
+<p>Common sense reasoning has long been a well sought after goal for artificial intelligence researchers. From John McCarthy and Marvin Minsky’s initial efforts with…, the Cyc Project<sup id="fnref:f1"><a href="#fn:f1" class="footnote">1</a></sup> which took swing at MCC …., and the NELL<sup id="fnref:f2"><a href="#fn:f2" class="footnote">2</a></sup> project at CMU. Establishing common sense in machines has always seemed like a critical goal for building somewhat sentient machines. But we realized over time that what humans perceive as “common” sense is not so trivial to be incorporated in AI agents. Instead, we resorted to solving tasks which are more constrained, nevertheless important. This article discusses some of the challenges of instilling common sense into our AI agents, provides a survey of work on research in this exciting research area, including large-scale knowledge collection projects and recent work on mental state prediction and …, and some future directions. And we will also discuss why it is difficult for a machine to answer the question in the title, i.e. why we use salt on icy roads?</p>
+
+<h4 id="why-and-when-do-we-need-common-sense">Why and when do we need common sense?</h4>
+
+<p>Before we get into the complexities of this topic, lets try to understand if common sense really is important for the models that we build these days. John McCarthy once said in an interview, “Purely computational programs don’t require common sense.” That sounds completely reasonable, you wouldn’t imagine a chess program needing to reason about the mental states of its opponent. It could model those processes into the decision making, but there is no evidence that it would benefit from this. On the other hand, models that perform natural language generation can conceivably benefit from common sense facts about the world. We would like to ensure that the text we generate abides by common sensen concepts, thereby also reducing our hypothesis space by a large extent. We haven’t actually discussed what common sense encapsulates. It’s a loosely defined phrase, but lets define it as the <em>ability of human beings to perceive real-world objects and situations, and make inferences of varying complexities, often relying on background knowledge about the world</em>. It is important to note here that this ability in humans is tied strongly with what we speak and how we behave. It appears that a large chunk of work in this area has focused on the <strong>representation</strong> of common sense facts, sometimes ignoring the need for this knowledge to usable by reasoning and generation models.</p>
+
+<h4 id="challenges-associated-with-common-sense-induction">Challenges associated with common sense induction</h4>
+
+<p>Semantic networks that encode relationships between entities (or classes of entities). The Google Knowledge Graph that they use for search is an example of this.
+Ideas considered seminal are the conception of the OpenCyc project and the NELL project.</p>
+
+<h4 id="recent-work-mental-state-prediction-rc-using-common-sense-knowledge">Recent Work: Mental state prediction, RC using common-sense knowledge</h4>
+
+<p>SemEval Task 11 for machine reading with common sense reasoning. The organizers created a dataset that would use script knowledge in addition to factual knowledge given in the passage. only 3 out of 11 teams actually used common sense knowledge explicitly. Question arises whether explicit</p>
+
+<h2 id="future-research-directions">Future Research Directions</h2>
+
+<p>Talk about Winograd schemas</p>
+
+<p>ConceptNet Numberbatch Embeddings<sup id="fnref:f4"><a href="#fn:f4" class="footnote">3</a></sup></p>
+
+<div class="img_row">
+    <img class="col three" src="/assets/img/9.jpg" />
+</div>
+<div class="img_row">
+    <img class="col three" src="/assets/img/7.jpg" />
+</div>
+<div class="col three caption">
+    A simple, elegant caption looks good between image rows, after each row, or doesn't have to be there at all.
+</div>
+<div class="img_row">
+    <img class="col two first" src="/assets/img/8.jpg" />
+    <img class="col one last" src="/assets/img/10.jpg" />
+</div>
+
+<div class="img_row">
+    <img class="col one first" src="/assets/img/11.jpg" />
+    <img class="col one" src="/assets/img/12.jpg" />
+    <img class="col one last" src="/assets/img/7.jpg" />
+</div>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:f1">
+      <p><a href="http://www.cs.cmu.edu/~tom/pubs/NELL_aaai15.pdf">Never-Ending Learning</a>. T. Mitchell, W. Cohen, E. Hruschka, P. Talukdar, J. Betteridge, A. Carlson, B. Dalvi, M. Gardner, B. Kisiel, J. Krishnamurthy, N. Lao, K. Mazaitis, T. Mohamed, N. Nakashole, E. Platanios, A. Ritter, M. Samadi, B. Settles, R. Wang, D. Wijaya, A. Gupta, X. Chen, A. Saparov, M. Greaves, J. Welling. In Proceedings of the Conference on Artificial Intelligence (AAAI), 2015. <a href="#fnref:f1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:f2">
+      <p>Lenat, Douglas B., and Ramanathan V. Guha. <a href="https://www.sciencedirect.com/science/article/pii/000437029390092P">Building large knowledge-based systems; representation and inference in the Cyc project</a>. (1989). <a href="#fnref:f2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:f4">
+      <p>Robert Speer, Joshua Chin, and Catherine Havasi (2017). <a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/viewFile/14972/14051">ConceptNet 5.5: An Open Multilingual Graph of General Knowledge</a>. In proceedings of AAAI 2017. ; https://github.com/commonsense/conceptnet-numberbatch <a href="#fnref:f4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </article>
+
+  
+
+</div>
+
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    &copy; Copyright 2018 Chaitanya Malaviya.
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+
+    
+  </div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+<script src="/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/css/academicons.min.css">
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXXXXXX', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+
+</html>
