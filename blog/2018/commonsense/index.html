@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Chaitanya Malaviya | Why use salt on icy roads?</title>
+  <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+">
+
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/blog/2018/commonsense/">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+        
+        <strong>Chaitanya</strong> Malaviya
+    </span>
+    
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="/">about</a>
+
+        <!-- Blog -->
+        <a class="page-link" href="/blog/">blog</a>
+
+        <!-- Pages -->
+        
+          
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="/photos/">photos</a>
+          
+        
+          
+            <a class="page-link" href="/projects/">projects</a>
+          
+        
+          
+            <a class="page-link" href="/publications/">publications and reports</a>
+          
+        
+          
+        
+
+        <!-- CV link -->
+        <!-- <a class="page-link" href="/assets/pdf/CV.pdf">vitae</a> -->
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Why use salt on icy roads?</h1>
+    <p class="post-meta">August 14, 2018</p>
+  </header>
+
+  <article class="post-content">
+    <div class="img_row">
+    <img class="col three" src="/assets/img/icysalt.jpg">
+</div>
+
+<p><br></p>
+
+<p>[Page under construction, check back in a few days]</p>
+
+<p><br></p>
+
+<p>Common sense reasoning has long been a well sought after goal for artificial intelligence researchers. From John McCarthy’s efforts to formalize common sense inference using first order logic to Marvin Minsky’s inception of the Open Mind Common Sense Project that resulted in ConceptNet<sup id="fnref:f4"><a href="#fn:f4" class="footnote">1</a></sup>, many researchers have established large-scale projects to tackle this challenge. Yet, we still stand very far from truly imparting common sense reasoning capabilities in machines. This calls for a greater need to perform research in this area: focusing on 1) forms of representation that are complementary with recent advances in the use of deep neural network models, 2) acquisition and learning of seen and unseen knowledge and finally, 3) exploring ways of biasing our models with common sense knowledge. Do our models already learn a fair bit of common sense? Is this already internalized into the models? There are considerable benefits of having more explicit control over what is encoded though: post-filtering, not getting biased by the data. Of course, it would be ideal if we could have a “god” system that would allow us to perform all forms of abstract queries but we don’t have to our exposure such a flexible system.</p>
+
+<!-- the Cyc Project[^f1] which took swing at MCC ...., and the NELL[^f2] project at CMU.  -->
+<p>Imparting common sense into machines has always seemed like a critical goal for building somewhat sentient machines. But we realized over time that what humans perceive as “common” sense is not so trivial to be incorporated in AI agents. Instead, we resorted to solving tasks which are more constrained, nevertheless important. This article discusses some of the challenges of instilling common sense into our AI agents, provides a survey of work on research in this exciting research area, including large-scale knowledge collection projects and recent work on mental state prediction and reading comprehension with common sense. We will focus primarily on recent work and discuss possible directions for future research. And finally, we will also address as to why it is difficult for a machine to answer the question in the title, i.e. why we use salt on icy roads?</p>
+
+<h4 id="why-and-when-do-we-need-common-sense">Why and when do we need common sense?</h4>
+
+<p>Before we get into the complexities of this topic, lets try to understand if common sense really is important for the models that we build these days. John McCarthy once said in an interview, “Purely computational programs don’t require common sense.” That sounds completely reasonable, you wouldn’t imagine a chess program needing to reason about the mental states of its opponent. It could model those processes into the decision making, but there is no evidence that it would benefit from this. On the other hand, models that perform natural language generation can conceivably benefit from common sense facts about the world. We want to avoid generating text that does not seem sensible or plausible given our knowledge about the world. We would like to ensure that the text we generate abides by common sense concepts, thereby also reducing our hypothesis space by a large extent. Such information would not just be useful with natural language, but with computer vision, multiple other modalities and their combinations. For instance, if a chef is getting together ingredients to make sushi in a movie, it is easy for us to conclude that he/she is making sushi, but this will not be an easy task for a machine unless it has seen this example before.</p>
+
+<p>We haven’t actually discussed what common sense encapsulates. It’s a loosely defined phrase, but lets define it as the <em>ability of human beings to perceive real-world objects and situations, and make inferences of varying complexities, often relying on background knowledge about the world</em>. It is important to note here that this ability in humans is tied strongly with what we speak and how we behave. It appears that a large chunk of work in this area has focused on the <strong>representation</strong> of these common sense facts, sometimes ignoring the need for this knowledge to usable by reasoning and generation models.</p>
+
+<p>A certain kind of reasoning which requires us to use knowledge about the world.</p>
+
+<h4 id="types-of-common-sense">Types of Common Sense</h4>
+
+<p>There are different forms of inference we care about when dealing with common sense knowledge. Often, we are concerned about the plausibility of an event or fact. Sometimes, we care about the likely effect of an event, where the event and its effect might both be unknown.
+forms of common sense that have been discussed in previous literature include:</p>
+
+<p><strong>Taxonomic Reasoning</strong> - Reasoning over hierarchical databases like WordNet created by mining the web. Several different relation types can be queried in such databases – symmetry, transitivity, and reflexiveness. For example, take the example of the animal kingdom, elephants are heavier than cats, and cats are heavier than mice, hence, we can conclude that elephants are heavier than mice <img class="emoji" title=":open_mouth:" alt=":open_mouth:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f62e.png" height="20" width="20"> .</p>
+
+<p><strong>Temporal Reasoning</strong> - Reasoning about the relative times between occurrence of multiple events. A classic example is this, if we know that PersonA was born after PersonB and died before PersonB, then PersonB lived longer than PersonA. Note that the events that have happened -are known, and we are merely concerned about their ordering in time.</p>
+
+<p><strong>Qualitative Reasoning</strong> - Analyzing cause and effect between interrelated quantities. Going back to our animal kingdom example, assuming we know than elephants eat grass, if humans burn a lot of grass in their habitat, elephants are likely to die because of shortage in diet. Another example of this is, if you shout at someone, he/she is likely to be sad. Evidently, this encapsulates infinitely wide range of cause/effect relationships in science, ecology, and other domains that couldn’t possibly be found in data. As humans, we have the capability to learn from causal relationships and judge accurately the plausibility of new relationships. For instance, humans have great instincts to responding to any possible danger. We don’t need to have seen all possible circumstances that could cause damage to us, but we can appropriately judge if an event is harmful for us. This might not be easy to do for a machine.///</p>
+
+<h4 id="existing-views-to-common-sense-representation">Existing Views to Common Sense Representation</h4>
+
+<div class="img_row">
+    <img class="col three" src="/assets/img/gkngraph.jpg">
+</div>
+<div class="col three caption">
+    A simple, elegant caption looks good between image rows, after each row, or doesn't have to be there at all.
+</div>
+
+<h5 id="knowledge-based-approaches"><strong>Knowledge-based approaches</strong></h5>
+<p>This view approaches the problem by attempting to create a large collection of facts, that may be probabilistic. To obtain this repository of facts, we could turn to web mining methods <sup id="fnref:f1"><a href="#fn:f1" class="footnote">2</a></sup> <sup id="fnref:f8"><a href="#fn:f8" class="footnote">3</a></sup> <sup id="fnref:f9"><a href="#fn:f9" class="footnote">4</a></sup> or crowdsourcing <sup id="fnref:f4:1"><a href="#fn:f4" class="footnote">1</a></sup>. This form of reasoning is limited by the amount of knowledge that can be encoded in these databases as well as the difficulty of representing abstraction relation types in the database. Usually, facts and relations are encoded in a knowledge graph. Examples of this are the Google Knowledge Graph that is used for Google Search or ConceptNet. Inference is usually performed using theories from mathematical logic or informal approaches like those of Minsky (1975) and Schank (1977). The most successful example in this approach is the Cyc Project, launched by Doug Lenat in 1984. Cyc has a large collection of concepts and facts, which are mostly taxonomic in nature.<br>
+Semantic networks that encode relationships between entities (or classes of entities).</p>
+
+<p>Among knowledge-based approaches, there is web mining like NELL <sup id="fnref:f8:1"><a href="#fn:f8" class="footnote">3</a></sup> and KnowItAll <sup id="fnref:f9:1"><a href="#fn:f9" class="footnote">4</a></sup>.</p>
+
+<h4 id="challenges-associated-with-common-sense-induction">Challenges associated with common sense induction</h4>
+
+<p>As has been highlighted in Ernest (2015), although the problems of representation and inference have been looked at in depth, the problem of actually carrying out reasoning using common sense knowledge remains largely unsolved.</p>
+
+<h5 id="the-long-tail-of-common-sense">The Long Tail of Common Sense</h5>
+
+<p>Negations, long tail of facts that don’t occur in the data such as, the name of the author of an obscure book, or something that is very obvious to humans, like oranges are round.</p>
+
+<h5 id="unseen-domains">Unseen Domains</h5>
+
+<h5 id="increasing-complexity-of-queries">Increasing Complexity of Queries</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Importance of nonmonotonic reasoning, deductive is monotonic
+</code></pre></div></div>
+
+<h4 id="recent-work-mental-state-prediction-rc-using-common-sense-knowledge">Recent Work: Mental state prediction, RC using common-sense knowledge</h4>
+
+<p>Now to the more exciting stuff, the research that has recently been published on this topic. It’s encouraging that institutions like <a href="allenai.org">AI2</a> and <a href="https://www.cs.washington.edu/research/nlp">UW</a> are heavily focusing on the right kind of goals for CSR.</p>
+
+<p>Among tasks asking participants to make use of world knowledge, SemEval Task 11 for machine reading with common sense reasoning. The organizers created a dataset that would use script knowledge in addition to factual knowledge given in the passage. However, only 3 out of 11 teams actually used common sense knowledge explicitly. Question arises whether explicit</p>
+
+<p>Recently, there has been a lot of relevant work in commonsense reasoning models dealing with creation of datasets capturing the some facets of common sense reasoning. Swag <sup id="fnref:f5"><a href="#fn:f5" class="footnote">5</a></sup> is a dataset for natural language inference of the kind that requires common sense reasoning. The dataset is constructed using a method called adversarial filtering that explicitly avoids the presence of annotation artifacts that are easily detectable by neural models. Event2Mind <sup id="fnref:f6"><a href="#fn:f6" class="footnote">6</a></sup> proposes an interesting problem for
+predicting the intents and reactions of the participants involved in a short free-form text. A crowdsourced dataset is created for this task and neural models are put to test for the prediction.</p>
+
+<p>There was a missing link between theories from cognitive science and common sense reasoning. This paper <sup id="fnref:f7"><a href="#fn:f7" class="footnote">7</a></sup> tries to bridge that link by proposing an annotation framework modeling the mental states of story characters by mapping them to theories of motivation and emotion from Maslow, Reiss and Plutchik.</p>
+
+<h2 id="future-research-directions">Future Research Directions</h2>
+
+<p>We are still in the nascent stages of building links between traditional commonsense reasoning and reasoning/generation models. Hence, it is important to set goals for what we would like to achieve thoughtfully. We don’t exactly want to collect a very large set of logical propositions. Ideally, we would like our r/g models to actively use common sense knowledge to always formulate “sensible” hypothesis. When integrated correctly, this can greatly benefit our systems.</p>
+
+<h3 id="need-for-benchmark-datasets">Need for benchmark datasets</h3>
+
+<p>Carefully thought out set of tasks and datasets.
+Talk about benchmark such as the Winograd schemas, <sup id="fnref:f10"><a href="#fn:f10" class="footnote">8</a></sup></p>
+
+<h3 id="incorporating-cognitive-science-theories">Incorporating cognitive science theories</h3>
+<p>Researchers in cognitive neuroscience have built elegant theories for how we respond to stimuli.
+A good example is Modeling Naive Psychology <sup id="fnref:f7:1"><a href="#fn:f7" class="footnote">7</a></sup></p>
+
+<p>###</p>
+
+<p>ConceptNet Numberbatch Embeddings<sup id="fnref:f4:2"><a href="#fn:f4" class="footnote">1</a></sup></p>
+
+<div class="img_row">
+    <img class="col two first" src="/assets/img/8.jpg">
+    <img class="col one last" src="/assets/img/10.jpg">
+</div>
+
+<div class="img_row">
+    <img class="col one first" src="/assets/img/11.jpg">
+    <img class="col one" src="/assets/img/12.jpg">
+    <img class="col one last" src="/assets/img/7.jpg">
+</div>
+
+<hr>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:f4">
+      <p>Robert Speer, Joshua Chin, and Catherine Havasi (2017). <a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/viewFile/14972/14051">ConceptNet 5.5: An Open Multilingual Graph of General Knowledge</a>. In proceedings of AAAI 2017. ; https://github.com/commonsense/conceptnet-numberbatch <a href="#fnref:f4" class="reversefootnote">↩</a> <a href="#fnref:f4:1" class="reversefootnote">↩<sup>2</sup></a> <a href="#fnref:f4:2" class="reversefootnote">↩<sup>3</sup></a></p>
+    </li>
+    <li id="fn:f1">
+      <p><a href="http://www.cs.cmu.edu/~tom/pubs/NELL_aaai15.pdf">Never-Ending Learning</a>. T. Mitchell, W. Cohen, E. Hruschka, P. Talukdar, J. Betteridge, A. Carlson, B. Dalvi, M. Gardner, B. Kisiel, J. Krishnamurthy, N. Lao, K. Mazaitis, T. Mohamed, N. Nakashole, E. Platanios, A. Ritter, M. Samadi, B. Settles, R. Wang, D. Wijaya, A. Gupta, X. Chen, A. Saparov, M. Greaves, J. Welling. In Proceedings of the Conference on Artificial Intelligence (AAAI), 2015. <a href="#fnref:f1" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:f8">
+      <p>Etzioni, O., Cafarella, M., Downey, D., Kok, S., Popsecu, A., Shaked, T., . . . Yates, A. (2004). Web-scale extraction in KnowItAll (preliminary results). 13th International Conference on World Wide Web, (pp. 100-110). <a href="#fnref:f8" class="reversefootnote">↩</a> <a href="#fnref:f8:1" class="reversefootnote">↩<sup>2</sup></a></p>
+    </li>
+    <li id="fn:f9">
+      <p>Wu, W., Li, H., Wang, H., &amp; Zhu, K. Q. (2012). Probase: A probabilistic taxonomy for text understanding. ACM SIGMOD. <a href="#fnref:f9" class="reversefootnote">↩</a> <a href="#fnref:f9:1" class="reversefootnote">↩<sup>2</sup></a></p>
+    </li>
+    <li id="fn:f5">
+      <p>Zellers, Rowan, et al. “SWAG: A Large-Scale Adversarial Dataset for Grounded Commonsense Inference.” arXiv preprint arXiv:1808.05326 (2018). <a href="#fnref:f5" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:f6">
+      <p>Hannah Rashkin, Maarten Sap, Emily Allaway, Noah A. Smith, &amp; Yejin Choi. Event2Mind: Commonsense Inference on Events, Intents and Reactions. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics 2018. <a href="#fnref:f6" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:f7">
+      <p>Hannah Rashkin, Antoine Bosselut, Maarten Sap, Kevin Knight, Yejin Choi. Modeling Naive Psychology of Characters in Simple Commonsense Stories. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics 2018. <a href="#fnref:f7" class="reversefootnote">↩</a> <a href="#fnref:f7:1" class="reversefootnote">↩<sup>2</sup></a></p>
+    </li>
+    <li id="fn:f10">
+      <p>Trieu H. Trinh, Quoc V. Le. A Simple Method for Commonsense Reasoning (2018). ArXiv. <a href="#fnref:f10" class="reversefootnote">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+  </article>
+
+  
+
+</div>
+
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    © Copyright 2018 Chaitanya Malaviya.
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+
+    
+  </div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+<script src="/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/css/academicons.min.css">
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXXXXXX', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+
+</html>
